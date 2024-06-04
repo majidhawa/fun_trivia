@@ -199,7 +199,7 @@ body {
     background: rgb(35, 35, 63);
     padding-left: 1.5rem;
 }
-/* Animation*/
+
 @keyframes BackgroundMove {
     0% {
         width: 100%;
