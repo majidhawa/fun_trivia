@@ -1,18 +1,18 @@
-// Variables
+
 const category = document.getElementById("category");
 const difficulty = document.getElementById("difficulty");
 const questions = document.getElementById("question-amount");
 const startBtn = document.getElementById("start-btn");
 const mainContainer = document.querySelector(".main-container");
 var score = 0;
-// Event Listeners
+
 startBtn.addEventListener("click", QuizSettings);
-// Function
+
 function QuizSettings() {
     let setCategory = category.value;
     let setDifficulty = difficulty.value;
     let setQuestions = questions.value;
-    // Dropdown Check
+
     let gameCondition = true;
     let settingsArray = [setCategory, setDifficulty, setQuestions];
     let stylesArray = [category, difficulty, questions];
@@ -33,38 +33,38 @@ function QuizSettings() {
         return;
     } else StartQuiz(setQuestions, setCategory, setDifficulty);
 }
-// Quiz Starts
+
 function StartQuiz(questions, category, difficulty) {
-    // Remove Settings Container
+    
     let container = document.querySelector(".game-settings");
     container.style.opacity = 0;
     setTimeout(() => {
         document.querySelector(".game-settings").remove();
     }, 1000);
-    // Add scoreboard
+  
     let scoreboard = document.createElement("p");
     scoreboard.id = "scoreboard";
     document.body.appendChild(scoreboard);
-    // Hide container
+ 
     mainContainer.style.opacity = 0;
     mainContainer.style.transform = "rotateX(50deg)";
-    // Fetch Request
+ 
     setTimeout(() => {
         fetch(
             `https://opentdb.com/api.php?amount=${questions}&category=${category}&difficulty=${difficulty}`
         )
             .then((response) => response.json())
             .then((data) => {
-                //
+                
                 let length = 0;
                 NewQuestion(data, length);
-                // New <button> = Submit Answer
+               
                 let submitBtn = document.createElement("button");
                 submitBtn.innerText = "Next";
                 submitBtn.id = "submit-btn";
                 mainContainer.appendChild(submitBtn);
                 submitBtn.addEventListener("click", () => {
-                    // Make sure an option is selected
+                    
                     if (document.querySelectorAll(".option")) {
                         let elm = document.querySelectorAll(".option");
                         let optionSelected = false;
@@ -85,24 +85,24 @@ function StartQuiz(questions, category, difficulty) {
                             return;
                         }
                     }
-                    // Get Question and Check if game over
+                   
                     length++;
                     NewQuestion(data, length);
                     CheckGameEnd(length, questions);
-                    // Hide container
+                
                 });
             });
     }, 1000);
 }
 function NewQuestion(data, length) {
-    // Remove old question if it exists
+  
     var elm = document.querySelector("h2");
     if (elm) elm.remove();
-    // Remove all old options
+   
     while (mainContainer.children.length > 1)
         mainContainer.removeChild(mainContainer.firstChild);
     if (length < data.results.length) {
-        // Codes -> Puntuation
+      
         let quizQueston = data.results[length].question;
         if (quizQueston.includes("&quot;"))
             quizQueston = quizQueston.replaceAll("&quot;", '"');
@@ -115,24 +115,24 @@ function NewQuestion(data, length) {
         ].flat();
         AnswersArray.sort(() => Math.random() - 0.5);
         for (let i = 0; i < AnswersArray.length; i++) {
-            // New <div>
+           
             let option = document.createElement("div");
             option.classList.add("option");
-            // New <p> inside of Div
+          
             let para = document.createElement("p");
             para.innerText = AnswersArray[i];
             option.prepend(para);
-            // Check Answer Event Listener
+           
             option.addEventListener("click", (e) => {
                 CheckAnswer(e, correctAnswer, data);
             });
             mainContainer.prepend(option);
         }
-        // New <h2> = Question
+     
         let title = document.createElement("h2");
         title.textContent = quizQueston;
         mainContainer.prepend(title);
-        // show main container
+     
         mainContainer.style.opacity = 1;
         mainContainer.style.transform = "rotateX(0deg)";
     }
@@ -153,11 +153,11 @@ function CheckAnswer(e, answer, data) {
             element.style.paddingLeft = "3rem";
         }, 300);
     }
-    // Remove abiblity to click once answer is found on options
+   
     let removeOptions = document.querySelectorAll(".option");
     for (let i = 0; i < removeOptions.length; i++) {
         removeOptions[i].style.pointerEvents = "none";
-        // Show correct answer
+        
         if (removeOptions[i].innerText == answer) {
             setTimeout(() => {
                 removeOptions[i].style.paddingLeft = "3rem";
@@ -169,11 +169,11 @@ function CheckAnswer(e, answer, data) {
     }
 }
 function CheckGameEnd(length, questions) {
-    // return if not answered all qeustions
+  
     if (length != questions) return;
-    // else remove button
+ 
     mainContainer.removeChild(mainContainer.lastChild);
-    // Move scoreboard into container
+   
     let scoreboard = document.getElementById("scoreboard");
     scoreboard.remove();
     //
@@ -193,14 +193,14 @@ function CheckGameEnd(length, questions) {
     } else {
         title.innerText = `You got ${percentage}% of questiosn correct. You want a medal?`;
     }
-    // Restart/Refresh page button
+   
     let refresh = document.createElement("button");
     refresh.innerText = "Play again!";
     refresh.id = "restart-btn";
     refresh.addEventListener("click", () => {
         location.reload();
     });
-    /// Append items to dom
+  
     mainContainer.appendChild(scoreboard);
     mainContainer.appendChild(title);
     mainContainer.appendChild(refresh);
