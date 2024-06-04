@@ -199,7 +199,7 @@ body {
     background: rgb(35, 35, 63);
     padding-left: 1.5rem;
 }
-/* Animation*/
+
 @keyframes BackgroundMove {
     0% {
         width: 100%;
@@ -211,7 +211,6 @@ body {
         width: 100%;
     }
 }
-/* Responsive */
 @media screen and (max-width: 480px) {
     .main-container {
         width: 95vw;
