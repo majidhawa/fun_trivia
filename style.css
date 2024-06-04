@@ -211,7 +211,6 @@ body {
         width: 100%;
     }
 }
-/* Responsive */
 @media screen and (max-width: 480px) {
     .main-container {
         width: 95vw;
