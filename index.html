@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hubballi&family=Sansita+Swashed:wght@400;800&display=swap"
+            rel="stylesheet"
+        />
+        <title>Fun Trivia</title>
+    </head>
+    <body>
+        <h1>Trivia Night</h1>
+        <!-- Container -->
+        <main>
+            <div class="main-container">
+                <!-- Game Settings-->
+                <div class="game-settings">
+                    <h2>The Ultimate Quiz Machine!</h2>
+                    <!-- Category -->
+                    <div class="settings-container">
+                        <label for="category">Category:</label>
+                        <select name="category" id="category">
+                            <option selected="true" disabled>Select category:</option>
+                            <option value="9">General Knowledge</option>
+                            <option value="14">TV</option>
+                            <option value="11">Movies</option>
+                            <option value="12">Music</option>
+                            <option value="15">Video Games</option>
+                            <option value="21">Sports</option>
+                            <option value="23">History</option>
+                            <option value="24">Politics</option>
+                            <option value="27">Animals</option>
+                            <option value="28">Cars</option>
+                        </select>
+                    </div>
+                    <!-- difficulty -->
+                    <div class="settings-container">
+                        <label for="difficulty">Difficulty:</label>
+                        <select name="difficulty" id="difficulty">
+                            <option selected="true" disabled>Select difficulty:</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <!-- No of Questions -->
+                    <div class="settings-container">
+                        <label for="question-amount">Questions:</label>
+                        <select name="question-amount" id="question-amount">
+                            <option selected="true" disabled>Select quantity:</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                </div>
+                <button id="start-btn" value="">Lets Go</button>
+            </div>
+        </main>
+        <!-- SVG Background -->
+        <div class="svg-shape-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="svg-shape-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+<script src="script.js"></script>
+    </body>
+</html>
