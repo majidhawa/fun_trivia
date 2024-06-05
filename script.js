@@ -1,3 +1,4 @@
+
 // Variables
 const categoryElement = document.getElementById("category");
 const difficultyElement = document.getElementById("difficulty");
@@ -15,6 +16,23 @@ function quizSettings() {
     let setDifficulty = difficultyElement.value;
     let setQuestions = questionsElement.value;
     // Dropdown Check
+
+
+const category = document.getElementById("category");
+const difficulty = document.getElementById("difficulty");
+const questions = document.getElementById("question-amount");
+const startBtn = document.getElementById("start-btn");
+const mainContainer = document.querySelector(".main-container");
+var score = 0;
+
+startBtn.addEventListener("click", QuizSettings);
+
+function QuizSettings() {
+    let setCategory = category.value;
+    let setDifficulty = difficulty.value;
+    let setQuestions = questions.value;
+
+
     let gameCondition = true;
     let settingsArray = [setCategory, setDifficulty, setQuestions];
     let stylesArray = [categoryElement, difficultyElement, questionsElement];
@@ -34,24 +52,35 @@ function quizSettings() {
 
 
 function startQuiz(questions, category, difficulty) {
-    // Remove Settings Container
+
+function StartQuiz(questions, category, difficulty) {
+    
+
     let container = document.querySelector(".game-settings");
     container.style.opacity = 0;
     setTimeout(() => {
         document.querySelector(".game-settings").remove();
     }, 1000);
-    // Add scoreboard
+  
     let scoreboard = document.createElement("p");
     scoreboard.id = "scoreboard";
     document.body.appendChild(scoreboard);
+
     // Hide container
     mainContainerElement.style.opacity = 0;
     mainContainerElement.style.transform = "rotateX(50deg)";
     // Fetch Request
+
+ 
+    mainContainer.style.opacity = 0;
+    mainContainer.style.transform = "rotateX(50deg)";
+ 
+
     setTimeout(() => {
         fetch(
             `https://opentdb.com/api.php?amount=${questions}&category=${category}&difficulty=${difficulty}`
         )
+
           .then((response) => response.json())
           .then((data) => {
                 //
@@ -63,7 +92,20 @@ function startQuiz(questions, category, difficulty) {
                 submitButton.id = "submit-btn";
                 mainContainerElement.appendChild(submitButton);
                 submitButton.addEventListener("click", () => {
-                    // Make sure an option is selected
+ 
+            .then((response) => response.json())
+            .then((data) => {
+                
+                let length = 0;
+                NewQuestion(data, length);
+               
+                let submitBtn = document.createElement("button");
+                submitBtn.innerText = "Next";
+                submitBtn.id = "submit-btn";
+                mainContainer.appendChild(submitBtn);
+                submitBtn.addEventListener("click", () => {
+                    
+
                     if (document.querySelectorAll(".option")) {
                         let elm = document.querySelectorAll(".option");
                         let optionSelected = false;
@@ -84,15 +126,22 @@ function startQuiz(questions, category, difficulty) {
                             return;
                         }
                     }
-                    // Get Question and Check if game over
+                   
                     length++;
+
                     newQuestion(data, length);
                     checkGameEnd(length, questions);
                     // Hide container
+
+                    NewQuestion(data, length);
+                    CheckGameEnd(length, questions);
+                
+
                 });
             });
     }, 1000);
 }
+
 
 function newQuestion(data, length) {
     // Remove old question if it exists
@@ -108,33 +157,62 @@ function newQuestion(data, length) {
             quizQuestion = quizQuestion.replaceAll("&quot;", '"');
         if (quizQuestion.includes("&#039;"))
             quizQuestion = quizQuestion.replaceAll("&#039;", "'");
+
+function NewQuestion(data, length) {
+  
+    var elm = document.querySelector("h2");
+    if (elm) elm.remove();
+   
+    while (mainContainer.children.length > 1)
+        mainContainer.removeChild(mainContainer.firstChild);
+    if (length < data.results.length) {
+      
+        let quizQueston = data.results[length].question;
+        if (quizQueston.includes("&quot;"))
+            quizQueston = quizQueston.replaceAll("&quot;", '"');
+        if (quizQueston.includes("&#039;"))
+            quizQueston = quizQueston.replaceAll("&#039;", "'");
+
         let correctAnswer = data.results[length].correct_answer;
         let answersArray = [
             data.results[length].incorrect_answers,
             data.results[length].correct_answer,
         ].flat();
+
         answersArray.sort(() => Math.random() - 0.5);
         for (let i = 0; i < answersArray.length; i++) {
             // New <div>
+
+        AnswersArray.sort(() => Math.random() - 0.5);
+        for (let i = 0; i < AnswersArray.length; i++) {
+           
+
             let option = document.createElement("div");
             option.classList.add("option");
-            // New <p> inside of Div
+          
             let para = document.createElement("p");
             para.innerText = answersArray[i];
             option.prepend(para);
-            // Check Answer Event Listener
+           
             option.addEventListener("click", (e) => {
                 checkAnswer(e, correctAnswer, data);
             });
             mainContainerElement.prepend(option);
         }
-        // New <h2> = Question
+     
         let title = document.createElement("h2");
+
         title.textContent = quizQuestion;
         mainContainerElement.prepend(title);
         // show main container
         mainContainerElement.style.opacity = 1;
         mainContainerElement.style.transform = "rotateX(0deg)";
+        title.textContent = quizQueston;
+        mainContainer.prepend(title);
+     
+        mainContainer.style.opacity = 1;
+        mainContainer.style.transform = "rotateX(0deg)";
+
     }
 }
 
@@ -151,11 +229,14 @@ function checkAnswer(e, answer, data) {
         element.style.background = "#831818";
         element.style.paddingLeft = "1rem";
     }
+
     // Remove ability to click once answer is found on options
+
+
     let removeOptions = document.querySelectorAll(".option");
     for (let i = 0; i < removeOptions.length; i++) {
         removeOptions[i].style.pointerEvents = "none";
-        // Show correct answer
+        
         if (removeOptions[i].innerText == answer) {
 
                 removeOptions[i].style.paddingLeft = "3rem";
@@ -167,12 +248,20 @@ function checkAnswer(e, answer, data) {
     }
 }
 
+
 function checkGameEnd(length, questions) {
     // return if not answered all questions
     if (length!= questions) return;
     // else remove button
     mainContainerElement.removeChild(mainContainerElement.lastChild);
     // Move scoreboard into container
+
+function CheckGameEnd(length, questions) {
+  
+    if (length != questions) return;
+ 
+    mainContainer.removeChild(mainContainer.lastChild);
+
     let scoreboard = document.getElementById("scoreboard");
     scoreboard.remove();
     //
@@ -192,15 +281,23 @@ function checkGameEnd(length, questions) {
     } else {
         title.innerText = `You got ${percentage}% of questions correct. You want a medal?`;
     }
-    // Restart/Refresh page button
+   
     let refresh = document.createElement("button");
     refresh.innerText = "Play again!";
     refresh.id = "restart-btn";
     refresh.addEventListener("click", () => {
         location.reload();
     });
+
     /// Append items to DOM
     mainContainerElement.appendChild(scoreboard);
     mainContainerElement.appendChild(title);
     mainContainerElement.appendChild(refresh);
 }
+
+  
+    mainContainer.appendChild(scoreboard);
+    mainContainer.appendChild(title);
+    mainContainer.appendChild(refresh);
+}
+
