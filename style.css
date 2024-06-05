@@ -1,38 +1,4 @@
-/*Background */
-.svg-shape-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-.svg-shape-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-.svg-shape-top svg,
-.svg-shape-bottom svg {
-    position: relative;
-    display: block;
-    width: calc(129% + 1.3px);
-    height: 100px;
-}
-.svg-shape-top .shape-fill,
-.svg-shape-bottom .shape-fill {
-    fill: #2E2E52;
-}
-.svg-shape-top,
-.svg-shape-bottom {
-    animation: BackgroundMove 25s infinite;
-    animation-timing-function: linear;
-}
-/* Presets */
+
 * {
     margin: 0;
     padding: 0;
@@ -65,17 +31,8 @@ label {
     font-weight: 800;
 }
 body {
-    background: #F2994A; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #F2C94C,
-        #F2994A
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #F2C94C,
-        rgb(248, 130, 27)
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #e48508;
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -129,13 +86,13 @@ body {
     font-size: 1em;
     line-height: 4rem;
     border-radius: 15px;
-    transition: 0.6s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 .settings-container option {
     border: 1px solid black;
     background: #2E2E52;
     border-radius: 10px;
-    transition: 0.6s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 #start-btn,
 #submit-btn,
@@ -149,9 +106,9 @@ body {
     color: black;
     border: 2px solid black;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
-/***** Javascript *****/
+
 /* Options */
 .option {
     background: rgba(0, 0, 255, 0.4);
@@ -163,20 +120,20 @@ body {
     border-radius: 10px;
     margin: 0.2rem;
     padding: 1rem 2rem;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 .option p {
     pointer-events: none;
-    transition: 0.6s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 #scoreboard {
     margin: 1rem auto;
     font-weight: 800;
 }
-/* Hover & Focus*/
+
 .option:hover,
 .option:focus {
-    transition: 0.3s ease-in-out;
+    
     background: rgba(0, 0, 255, 0.5);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -186,32 +143,18 @@ body {
 #submit-btn:focus,
 #restart-btn:hover,
 #restart-btn:focus {
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
     color: black;
     background: #2E2E52;
     color: white;
     border: 2px solid black;
 }
 .settings-container select:hover {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+   
     transition: 0.3s ease-in-out;
     background: rgb(35, 35, 63);
     padding-left: 1.5rem;
 }
-/* Animation*/
-@keyframes BackgroundMove {
-    0% {
-        width: 100%;
-    }
-    50% {
-        width: 150%;
-    }
-    100% {
-        width: 100%;
-    }
-}
-/* Responsive */
 @media screen and (max-width: 480px) {
     .main-container {
         width: 95vw;
