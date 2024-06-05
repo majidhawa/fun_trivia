@@ -1,184 +1,139 @@
-/*Background */
-.svg-shape-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-.svg-shape-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-.svg-shape-top svg,
-.svg-shape-bottom svg {
-    position: relative;
-    display: block;
-    width: calc(129% + 1.3px);
-    height: 100px;
-}
-.svg-shape-top .shape-fill,
-.svg-shape-bottom .shape-fill {
-    fill: #2E2E52;
-}
-.svg-shape-top,
-.svg-shape-bottom {
-    animation: BackgroundMove 25s infinite;
-    animation-timing-function: linear;
-}
 /* Presets */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 h1 {
-    position: absolute;
-    font-family: "Sansita Swashed", cursive;
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 2.5rem;
-    top: 7%;
+  position: absolute;
+  font-family: "Sansita Swashed", cursive;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  top: 7%;
 }
 h2 {
-    font-family: "Sansita Swashed", cursive;
-    font-size: 1.6rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    text-align: center;
+  font-family: "Sansita Swashed", cursive;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 p,
 button,
 label,
 select {
-    font-family: "Hubballi", cursive;
-    font-size: 1.5em;
+  font-family: "Hubballi", cursive;
+  font-size: 1.5em;
 }
 button,
 label {
-    font-weight: 800;
+  font-weight: 800;
 }
 body {
-    background: #F2994A; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #F2C94C,
-        #F2994A
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #F2C94C,
-        rgb(248, 130, 27)
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+  background: #f2994a; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
-
 .main-container {
-    background: rgba(255, 255, 255, 0.5);
-    width: 80vw;
-    height: auto;
-    max-width: 1100px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    transition: 1s ease-in;
+  background: rgba(255, 255, 255, 0.5);
+  width: 80vw;
+  height: auto;
+  max-width: 1100px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transition: 1s ease-in;
 }
 .game-settings {
-    margin-top: 1rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: 1s ease-in-out;
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease-in-out;
 }
 .settings-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
 }
 .settings-container label {
-    width: 110px;
+  width: 110px;
 }
 .settings-container select {
-    border: none;
-    margin-left: 1rem;
-    height: 40px;
-    width: 300px;
-    padding-left: 1rem;
-    cursor: pointer;
-    background: #2E2E52;
-    color: white;
-    font-size: 1em;
-    line-height: 4rem;
-    border-radius: 15px;
-    transition: 0.6s ease-in-out;
+  border: none;
+  margin-left: 1rem;
+  height: 40px;
+  width: 300px;
+  padding-left: 1rem;
+  cursor: pointer;
+  background: #2e2e52;
+  color: white;
+  font-size: 1em;
+  line-height: 4rem;
+  border-radius: 15px;
+  transition: 0.6s ease-in-out;
 }
 .settings-container option {
-    border: 1px solid black;
-    background: #2E2E52;
-    border-radius: 10px;
-    transition: 0.6s ease-in-out;
+  border: 1px solid black;
+  background: #2e2e52;
+  border-radius: 10px;
+  transition: 0.6s ease-in-out;
 }
 #start-btn,
 #submit-btn,
 #restart-btn {
-    margin-top: 0.5rem;
-    height: 40px;
-    width: 140px;
-    border: none;
-    border-radius: 20px;
-    background: none;
-    color: black;
-    border: 2px solid black;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+  margin-top: 0.5rem;
+  height: 40px;
+  width: 140px;
+  border: none;
+  border-radius: 20px;
+  background: none;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 /***** Javascript *****/
 /* Options */
 .option {
-    background: rgba(0, 0, 255, 0.4);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-grow: 1;
-    width: 100%;
-    border-radius: 10px;
-    margin: 0.2rem;
-    padding: 1rem 2rem;
-    transition: 0.3s ease-in-out;
+  background: rgba(0, 0, 255, 0.4);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  border-radius: 10px;
+  margin: 0.2rem;
+  padding: 1rem 2rem;
+  transition: 0.3s ease-in-out;
 }
 .option p {
-    pointer-events: none;
-    transition: 0.6s ease-in-out;
+  pointer-events: none;
+  transition: 0.6s ease-in-out;
 }
 #scoreboard {
-    margin: 1rem auto;
-    font-weight: 800;
+  margin: 1rem auto;
+  font-weight: 800;
 }
 /* Hover & Focus*/
 .option:hover,
 .option:focus {
-    transition: 0.3s ease-in-out;
-    background: rgba(0, 0, 255, 0.5);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+  background: rgba(0, 0, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 #start-btn:hover,
 #start-btn:focus,
@@ -186,38 +141,26 @@ body {
 #submit-btn:focus,
 #restart-btn:hover,
 #restart-btn:focus {
-    transition: 0.3s ease-in-out;
-    color: black;
-    background: #2E2E52;
-    color: white;
-    border: 2px solid black;
+  transition: 0.3s ease-in-out;
+  color: black;
+  background: #2e2e52;
+  color: white;
+  border: 2px solid black;
 }
 .settings-container select:hover {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    transition: 0.3s ease-in-out;
-    background: rgb(35, 35, 63);
-    padding-left: 1.5rem;
-}
-/* Animation*/
-@keyframes BackgroundMove {
-    0% {
-        width: 100%;
-    }
-    50% {
-        width: 150%;
-    }
-    100% {
-        width: 100%;
-    }
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  transition: 0.3s ease-in-out;
+  background: rgb(35, 35, 63);
+  padding-left: 1.5rem;
 }
 /* Responsive */
 @media screen and (max-width: 480px) {
-    .main-container {
-        width: 95vw;
-        padding: 1.5rem 0.5rem;
-    }
-    .settings-container label {
-        width: 95px;
-    }
+  .main-container {
+    width: 95vw;
+    padding: 1.5rem 0.5rem;
+  }
+  .settings-container label {
+    width: 95px;
+  }
 }
