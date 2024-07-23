@@ -220,4 +220,184 @@ body {
     .settings-container label {
         width: 95px;
     }
+
+}
+@media screen and (min-width:300px) and (max-width:760px) {
+    .main-container {
+        background: rgba(255, 255, 255, 0.5);
+        width: 90vw;
+        height: auto;
+        max-width: 900px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        transition: 1s ease-in;
+    }  
+    h1 {
+        position: absolute;
+        font-family: "Sansita Swashed", cursive;
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 4.5rem;
+        top: 10%;
+    }
+    h2 {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 1.6rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    body {
+        background: #F2994A; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+            to right,
+            #F2C94C,
+            #F2994A
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+            to right,
+            #F2C94C,
+            rgb(248, 130, 27)
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+    .svg-shape-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+    .svg-shape-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    p,
+button,
+label,
+select {
+    font-family: "Hubballi", cursive;
+    font-size: 1.5em;
+}
+.svg-shape-top .shape-fill,
+.svg-shape-bottom .shape-fill {
+    fill: #2E2E52;
+}
+.svg-shape-top,
+.svg-shape-bottom {
+    animation: BackgroundMove cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+    animation-timing-function: linear;
+}
+/* Presets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+}
+
+@media screen and (min-width:701px) and (max-width:1200px){
+.main-container {
+        background: rgba(255, 255, 255, 0.5);
+        width: 80vw;
+        height: auto;
+        max-width: 900px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        transition: 1s ease-in;
+    }  
+    h1 {
+        position: absolute;
+        font-family: "Sansita Swashed", cursive;
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 4.5rem;
+        top: 10%;
+    }
+    h2 {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 1.6rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    body {
+        background: #F2994A; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+            to right,
+            #F2C94C,
+            #F2994A
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+            to right,
+            #F2C94C,
+            rgb(248, 130, 27)
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+    .svg-shape-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+    .svg-shape-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    p,
+button,
+label,
+select {
+    font-family: "Hubballi", cursive;
+    font-size: 1.5em;
+}
+.svg-shape-top .shape-fill,
+.svg-shape-bottom .shape-fill {
+    fill: #2E2E52;
+}
+.svg-shape-top,
+.svg-shape-bottom {
+    animation: BackgroundMove cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+    animation-timing-function: linear;
+}
+/* Presets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 }
